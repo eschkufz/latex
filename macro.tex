@@ -1,0 +1,74 @@
+% Headers:
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage{xparse}
+
+% Editing:
+\NewDocumentCommand\todo{mg}{%
+  {\color{red} {\bf [TODO \IfNoValueTF{#2}{#1}{(#1) #2}]}}%
+}
+\newcommand{\lock}[1]{%
+  {\color{red} {\bf [LOCK (#1)]}}%
+}
+
+% Function Notation:
+\NewDocumentCommand\fxn{mgg}{%
+  #1(\IfNoValueTF{#2}{\cdot}{#2\IfNoValueTF{#3}{}{;#3}})%
+}
+\newcommand{\type}[3]{%
+  #1 : #2 \rightarrow #3%
+}
+
+% Standard Functions:
+\NewDocumentCommand\prob{mg}{%
+  \IfNoValueTF{#2}{\fxn{p}{#1}}{\fxn{p}{#1}{#2}}%
+}
+\NewDocumentCommand\cprob{mmg}{%
+  \IfNoValueTF{#3}{\fxn{p}{#1\vert#2}}{\fxn{p}{#1\vert#2}{#3}}%
+}
+\newcommand{\ind}[1]{%
+  \fxn{{\bf 1}}{#1}%
+}
+\newcommand{\pdf}[1]{%
+  \fxn{{\rm pdf}}{#1}%
+}
+\newcommand{\cdf}[1]{%
+  \fxn{{\rm cdf}}{#1}%
+}
+\newcommand{\abs}[1]{%
+  \fxn{{\rm abs}}{#1}%
+}
+\newcommand{\mean}[1]{%
+  \fxn{\mu}{#1}%
+}
+\newcommand{\var}[1]{%
+  \fxn{\sigma^2}{#1}%
+}
+\newcommand{\stddev}[1]{%
+  \fxn{\sigma}{#1}%
+}
+\newcommand{\normal}[2]{%
+  \fxn{\mathcal{N}}{#1, #2}%
+}
+\newcommand{\dom}[1]{%
+  \fxn{\mathit{Dom}}{#1}%
+}
+\newcommand{\range}[1]{%
+  \fxn{\mathit{Range}}{#1}%
+}
+
+% Standard Sets:
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\nints}{\ints^-}
+\newcommand{\pints}{\ints^+}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\nnats}{\nats^-}
+\newcommand{\pnats}{\nats^+}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\nreals}{\reals^-}
+\newcommand{\preals}{\reals^+}
+\newcommand{\floats}{\mathbb{F}}
+\newcommand{\nfloats}{\floats^-}
+\newcommand{\pfloats}{\floats^+}
+
+
