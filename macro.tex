@@ -13,7 +13,7 @@
 
 % Function Notation:
 \NewDocumentCommand\fxn{mgg}{%
-  #1(\IfNoValueTF{#2}{\cdot}{#2\IfNoValueTF{#3}{}{;#3}})%
+  #1\left(\IfNoValueTF{#2}{\cdot}{#2\IfNoValueTF{#3}{}{;#3}}\right)%
 }
 \newcommand{\type}[3]{%
   #1 : #2 \rightarrow #3%
